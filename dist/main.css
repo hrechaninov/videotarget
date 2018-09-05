@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+:root{
+    --normal-text: 1em;
+    --normal-text-lh: 1em;
+    --bigger-text: calc(var(--normal-text) * 1.3);
+    --bigger-text-lh: calc(var(--normal-text-lh) * 1.3);
+    --big-text: calc(var(--normal-text) * 2);
+    --big-text-lh: calc(var(--normal-text-lh) * 1.6);
+    --huge-text: calc(var(--normal-text) * 3);
+    --huge-text-lh: calc(var(--normal-text-lh) * 2);
+
+    --header-max-width: 0.5;
+
+    --button-primary: #82c434;
+    --button-primary-hover: #282e3e;
+    --button-secondary: white;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.full-screen{
+    width: 100%;
+    height: 100vh;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("./images/header.jpg") center;
+    background-size: cover;
+    color: white;
+    font-family: "Roboto Slab";
+}
+header::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.top-layer{
+    z-index: 100;
+}
+h1{
+    font-size: var(--huge-text);
+    max-width: calc(var(--header-max-width) * 100%);
+    line-height: var(--huge-text-lh);
+    margin-top: 25vh;
+    letter-spacing: 6px;
+}
+h3{
+    font-size: var(--bigger-text);
+    max-width: calc(var(--header-max-width) * 100%);
+    line-height: var(--bigger-text-lh);
+    letter-spacing: 4px;
+    font-weight: lighter;
+    text-align: center;
+}
+header button{
+    font-size: inherit;
+    padding: 10px 40px;
+    border: 2px solid;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+header .buttons-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-width: calc(var(--header-max-width) * 100%);
+    margin-top: var(--huge-text-lh);
+    font-size: var(--big-text);
+}
+button#about{
+    background-color: transparent;
+    border-color: var(--button-secondary);
+}
+button#about:hover{
+    background-color: var(--button-primary);
+    border-color: var(--button-primary);
+}
+button#form{
+    background-color: var(--button-primary);
+    border-color: var(--button-primary);
+}
+button#form:hover{
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
+}
