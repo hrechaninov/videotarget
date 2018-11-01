@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +8,33 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="full-screen">
-        <h1 class="top-layer">Lorem ipsum dolor sit</h1>
-        <h3 class="top-layer">Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-            Eligendi porro quia perspiciatis. In deserunt iure eligendi 
-            facere</h3>
-        <div class="buttons-container top-layer">
-            <button id="form">Order now</button>
-            <button id="about">Features</button>
-        </div>
-    </header>
-    <section id="info"></section>
-    <section id="form"></section>
-    <footer></footer>
+    <section class="full-screen">
+        <div class="section-subcontainer">
+			<header>
+				<h1>Привлечение клиентов из Youtube</h1>
+				<h3>Тонкая настройка видео-рекламы на Youtube</h3>
+			</header>
+		</div>
+        <div class="section-subcontainer" id="form-container">
+			<form>
+				<div class="input-container" id="name-input-container">
+					<label id="name-input-label" for="name-input">Имя</label>
+					<input type="text" name="name" id="name-input" autocomplete="off" spellcheck="false">
+				</div>
+				<div class="input-container" id="email-input-container">
+					<label id="email-input-label" for="email-input">Электронная почта</label>
+					<input type="email" name="email" id="email-input" autocomplete="off" spellcheck="false">
+				</div>
+				<div class="input-container" id="phone-number-input-container">
+					<label id="phone-number-input-label" for="phone-number-input">Номер телефона</label>
+					<input type="text" name="phone-number" id="phone-number-input" autocomplete="off" spellcheck="false">
+				</div>
+				<div class="button-container">
+					<button id="submit-button">Отправить</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<script src="main.js"></script>
 </body>
 </html>
