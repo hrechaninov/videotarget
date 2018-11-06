@@ -25,6 +25,10 @@ export class Input{
 		if(this._label){
 			this._label.classList.add("focused");
 		}
+		if(this._input && this._container){
+			this._input.classList.remove("invalid");
+			this._container.classList.remove("invalid");
+		}
 	}
 	unfocus(){
 		if(this._label){

@@ -21,6 +21,8 @@ window.onload = function(){
 		input: document.getElementById("phone-number-input"),
 		container: document.getElementById("phone-number-input-container")
 	};
+	const confirmationPopUp = document.querySelector("#confirmation-pop-up");
+	const confirmationPopUpButton = confirmationPopUp.querySelector(".pop-up-close-button");
 	const submitButton = document.getElementById("submit-button");
 
 	const nameInput = new Input(nameInputConfig);
@@ -49,7 +51,11 @@ window.onload = function(){
 			phoneNumber: phoneNumberInput.value,
 			date: date
 		});
+		confirmationPopUp.classList.remove("pop-up_hidden");
 		console.log("added");
+	});
+	confirmationPopUpButton.addEventListener("click", e => {
+		confirmationPopUp.classList.add("pop-up_hidden");
 	});
 }
 
