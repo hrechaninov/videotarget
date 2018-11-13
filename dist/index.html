@@ -8,33 +8,76 @@
     <title>Document</title>
 </head>
 <body>
-    <section>
-        <div class="section-subcontainer">
-			<header>
-				<h1>Привлечение клиентов из Youtube</h1>
-				<h3>Тонкая настройка видео-рекламы на Youtube</h3>
-			</header>
+	<header>
+		<div class="header-wrapper">
+			<h1>Привлечение клиентов из Youtube</h1>
+			<div class="header-buttons-container">
+				<button class="header-button" id="button-own">Хочу продажи со своего Youtube-канала</button>
+				<button class="header-button" id="button-from-ads">Хочу продажи из рекламы на Youtube</button>
+			</div>
 		</div>
-        <div class="section-subcontainer" id="form-container">
-			<form>
-				<div class="input-container" id="name-input-container">
-					<label id="name-input-label" for="name-input">Имя</label>
-					<input type="text" name="name" id="name-input" autocomplete="off" spellcheck="false">
+	</header>
+    <section class="inverted-colors reversed" id="section-own">
+		<div class="section-subcontainer">
+			<h2>Привлечение органического трафика с Youtube-канала</h2>
+			<h3>Получи непрерывный поток клиентов для своего бизнеса через свой Youtube-канал.</h3>
+		</div>
+        <div class="section-subcontainer form-container">
+			<form class="inverted-colors" id="form-own">
+				<div class="input-container name-input-container">
+					<label class="name-input-label">Имя</label>
+					<input type="text" class="name-input" autocomplete="off" spellcheck="false">
 				</div>
-				<div class="input-container" id="email-input-container">
-					<label id="email-input-label" for="email-input">Электронная почта</label>
-					<input type="email" name="email" id="email-input" autocomplete="off" spellcheck="false">
+				<div class="input-container email-input-container">
+					<label class="email-input-label">Электронная почта</label>
+					<input type="email" class="email-input" autocomplete="off" spellcheck="false">
 				</div>
-				<div class="input-container" id="phone-number-input-container">
-					<label id="phone-number-input-label" for="phone-number-input">Номер телефона</label>
-					<input type="text" name="phone-number" id="phone-number-input" autocomplete="off" spellcheck="false">
+				<div class="input-container phone-number-input-container">
+					<label class="phone-number-input-label">Номер телефона</label>
+					<input type="text" class="phone-number-input" autocomplete="off" spellcheck="false">
 				</div>
 				<div class="button-container">
-					<button id="submit-button">Получить клиентов из Youtube</button>
+					<button class="inverted-colors submit-button">Получить клиентов из Youtube</button>
 				</div>
 			</form>
 		</div>
 	</section>
+	<section id="section-ads">
+		<div class="section-subcontainer">
+			<h2>Разработка успешных рекламных видео-кампаний на Youtube для быстрого привлечения клиентов</h2>
+			<h3>Получай до 2000 "теплых" лидов в сутки по оптимальной цене, благодаря рекламным видео-объявлениям разработанным точно под твою целевую аудиторию.</h3>
+		</div>
+		<div class="section-subcontainer form-container">
+			<form id="form-ads">
+				<div class="input-container name-input-container">
+					<label class="name-input-label">Имя</label>
+					<input type="text" class="name-input" autocomplete="off" spellcheck="false">
+				</div>
+				<div class="input-container email-input-container">
+					<label class="email-input-label">Электронная почта</label>
+					<input type="email" class="email-input" autocomplete="off" spellcheck="false">
+				</div>
+				<div class="input-container phone-number-input-container">
+					<label class="phone-number-input-label">Номер телефона</label>
+					<input type="text" class="phone-number-input" autocomplete="off" spellcheck="false">
+				</div>
+				<div class="button-container">
+					<button class="submit-button">Получить клиентов из Youtube</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<footer>
+		<div class="footer-wrapper">
+			<h3>+38 097 978 33 97</h3>
+			<h3>info@videotarget.net</h3>
+			<div class="footer-buttons-container">
+				<button class="footer-button">Политика конфиденциальности</button>
+				<button class="footer-button">Отказ от ответственности</button>
+				<button class="footer-button">Согласие с рассылкой</button>
+			</div>
+		</div>
+	</footer>
 	<div class="pop-up pop-up_hidden" id="confirmation-pop-up">
 		<h3>Спасибо, ваша заявка принята!</h3>
 		<h3>Мы свяжемся с вами в ближайшее время :)</h3>

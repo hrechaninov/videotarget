@@ -1,65 +1,44 @@
-import {Input, EmailInput} from "./input.js";
+import { Form } from "./form.js";
 const firebase = require("firebase/app");
 require("firebase/firestore");
 
 window.onload = function(){
-	const nameInputConfig = {
-		name: "nameInput",
-		label: document.getElementById("name-input-label"),
-		input: document.getElementById("name-input"),
-		container: document.getElementById("name-input-container")
-	};
-	const emailInputConfig = {
-		name: "emailInput",
-		label: document.getElementById("email-input-label"),
-		input: document.getElementById("email-input"),
-		container: document.getElementById("email-input-container")
-	};
-	const phoneNumberInputConfig = {
-		name: "phoneNumberInput",
-		label: document.getElementById("phone-number-input-label"),
-		input: document.getElementById("phone-number-input"),
-		container: document.getElementById("phone-number-input-container")
-	};
-	const confirmationPopUp = document.querySelector("#confirmation-pop-up");
-	const confirmationPopUpButton = confirmationPopUp.querySelector(".pop-up-close-button");
-	const submitButton = document.getElementById("submit-button");
-
-	const nameInput = new Input(nameInputConfig);
-	const emailInput = new EmailInput(emailInputConfig);
-	const phoneNumberInput = new Input(phoneNumberInputConfig);
-
 	const db = firebase.firestore();
+	const popUp = {
+		attached: false
+	};
+	const formOwnConfig = {
+		name: "Продажи со своего канала",
+		element: document.querySelector("#form-own"),
+		popUp: popUp
+	};
+	const formAdsConfig = {
+		name: "Продажи с рекламы",
+		element: document.querySelector("#form-ads"),
+		popUp: popUp
+	};
+	const formOwn = new Form(formOwnConfig);
+	const formAds = new Form(formAdsConfig);
+
 	db.settings({
 		timestampsInSnapshots: true
 	});
+	formOwn.dataBase = db;
+	formAds.dataBase = db;
 
-	submitButton.addEventListener("click", e => {
-		e.preventDefault();
-		const date = new Date();
-		const inputsOk = [
-			nameInput.isOk(),
-			emailInput.isOk(),
-			phoneNumberInput.isOk()
-		].every(check => check === true);
-
-		if(!inputsOk) return;
-
-		db.collection("contacts").add({
-			name: nameInput.value,
-			email: emailInput.value,
-			phoneNumber: phoneNumberInput.value,
-			date: date
-		});
-		confirmationPopUp.classList.remove("pop-up_hidden");
-		console.log("added");
+	document.getElementById("button-own").addEventListener("click", e => {
+		scrollTo(document.getElementById("section-own"));
 	});
-	confirmationPopUpButton.addEventListener("click", e => {
-		confirmationPopUp.classList.add("pop-up_hidden");
+	document.getElementById("button-from-ads").addEventListener("click", e => {
+		scrollTo(document.getElementById("section-ads"));
 	});
 }
-
-var config = {
+function scrollTo(element){
+	element.scrollIntoView({ 
+		behavior: "smooth"
+	});
+}
+var firebaseConfig = {
 	apiKey: "AIzaSyB-IAMODUWun1yPADCHMrIIRkJwkLY7Qf4",
 	authDomain: "video-target.firebaseapp.com",
 	databaseURL: "https://video-target.firebaseio.com",
@@ -68,4 +47,4 @@ var config = {
 	messagingSenderId: "88038667361"
 };
 
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);

@@ -17,20 +17,34 @@
 
 	--section-height: 100vh;
 	--section-direction: row;
+	--section-direction-reversed: row-reverse;
+	--footer-buttons-direction: row;
 	--section-subcontainer-width: 100%;
 	--section-subcontainer-height: 100%;
 
 	--red-light: #c12f2a;
 	--red-dark: #7d1f1c;
+	--white: #fafafa;
+	--grey: #eeeeee;
+	--black: #222222;
 }
 *{
     margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 	font-family: "Roboto", sans-serif;
 	color: white;
 }
 header{
-	max-width: calc(var(--header-max-width) * 100%);
+	width: 100%;
+	min-height: 50vh;
+	padding: calc(var(--base-txt-size) * 8) var(--base-txt-size);
+	background: radial-gradient(var(--red-light), var(--red-dark));
+}
+footer{
+	width: 100%;
+	padding: calc(var(--base-txt-size) * 3) var(--base-txt-size);
+	background-color: var(--black);
 }
 h1{
     font-size: var(--txt-xl);
@@ -38,7 +52,8 @@ h1{
 	letter-spacing: 6px;
 	text-align: center;
 }
-h3{
+h2, h3{
+	color: var(--color);
     font-size: var(--txt-md);
     line-height: var(--txt-lh-normal);
     letter-spacing: 4px;
@@ -47,23 +62,45 @@ h3{
 	
 	margin-top: 1em;
 }
+h3{
+	font-size: calc(var(--txt-md) * 0.8);
+}
 section{
+	--color: var(--white);
     display: flex;
     flex-direction: var(--section-direction);
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
 	width: 100%;
-	height: var(--section-height);
+	min-height: 100vh;
+	padding: calc(var(--base-txt-size) * 8) var(--base-txt-size);
 	background: radial-gradient(var(--red-light), var(--red-dark));
 }
+section.reversed{
+	flex-direction: var(--section-direction-reversed);
+}
+section.inverted-colors{
+	--color: var(--black);
+	background: radial-gradient(var(--white), var(--grey));
+}
 form{
+	--color: var(--white);
+	--color-inverted: var(--black);
+	--input-background-color: var(--white);
 	font-size: var(--txt-md);
 	line-height: var(--txt-lh-normal);
 	
 	padding: var(--base-txt-size);
 	border-radius: 6px;
 }
+form.inverted-colors{
+	--color: var(--black);
+	--color-inverted: var(--white);
+	--input-background-color: transparent;
+}
 label{
 	display: block;
+	color: var(--color);
 	font-size: calc(var(--txt-xs) * 1.2);
 	line-height: var(--txt-lh-normal);
 	margin-bottom: 2px;
@@ -75,37 +112,84 @@ label.focused{
 input{
 	position: relative;
 	min-width: calc(var(--txt-sm) * 20);
-	border: 2px solid white;
-	border-radius: 6px;
+	border-top: 1px solid var(--input-background-color);
+	border-left: 1px solid var(--input-background-color);
+	border-right: 1px solid var(--input-background-color);
+	border-bottom: 1px solid var(--color);
+	border-radius: 6px 6px 0 0;
 	outline: none;
 	font-size: var(--txt-sm);
 	line-height: var(--txt-lh-normal);
 	padding: calc(var(--txt-sm) * 0.5);
-	background-color: #f1f3f4;
-	color: rgb(31, 31, 31);
+	background-color: var(--input-background-color);
+	color: var(--black);
 }
 input.invalid{
-	border: 2px solid rgb(44, 99, 216);
+	border: 1px solid rgb(44, 99, 216);
 }
 button{
+	--color: var(--white);
+	--color-inverted: var(--red-dark);
+	--background-color: transparent;
+	--background-color-inverted: var(--white);
 	display: block;
-	border: 1px solid white;
+	border: 1px solid var(--color);
 	border-radius: 8px;
-	background-color: transparent;
+	background-color: var(--background-color);
+	color: var(--color);
 
 	font-size: var(--txt-sm);
 	line-height: var(--txt-lh-normal);
 	padding: calc(var(--base-txt-size) * 0.3) calc(var(--base-txt-size) * 0.5);
 	transition: background-color 0.1s linear, color 0.1s linear;
 }
+button.inverted-colors{
+	--color: var(--black);
+	--color-inverted: var(--white);
+	--background-color: transparent;
+	--background-color-inverted: var(--red-light);
+}
 button:hover{
-	color: var(--red-dark);
-	background-color: white;
+	color: var(--color-inverted);
+	background-color: var(--background-color-inverted);
+	border: 1px solid var(--background-color-inverted);
 
 	cursor: pointer;
 }
 button:active{
 	transform: translateY(2px);
+}
+.header-wrapper,
+.footer-wrapper
+{
+	width: fit-content;
+	width: -moz-fit-content;
+    margin: 0 auto;
+}
+.header-buttons-container,
+.footer-buttons-container
+{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+
+	font-size: var(--txt-md);
+	line-height: var(--txt-lh-normal);
+
+	margin-top: calc(var(--base-txt-size) * 2);
+}
+.footer-buttons-container{
+	flex-flow: var(--footer-buttons-direction) nowrap;
+}
+.header-button{
+	margin: calc(var(--base-txt-size) * 0.5) 0px;
+}
+.footer-button{
+	--color: var(--white);
+	--color-inverted: var(--black);
+	--background-color: transparent;
+	--background-color-inverted: var(--white);
+	margin: calc(var(--base-txt-size) * 0.5) calc(var(--base-txt-size) * 0.5);
 }
 .section-subcontainer{
 	display: flex;
@@ -114,9 +198,10 @@ button:active{
 	justify-content: center;
 	width: var(--section-subcontainer-width);
 	height: var(--section-subcontainer-height);
+	padding: 0px calc(var(--base-txt-size) * 1.1);
     flex-grow: 1;
 }
-#form-container{
+.form-container{
 	height: 100%;
 }
 .input-container{
@@ -142,7 +227,7 @@ button:active{
 	margin-top: 20px;
 }
 .pop-up{
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	display: flex;
@@ -183,13 +268,19 @@ button:active{
 }
 @media screen and (max-width: 800px){
 	:root{
+		--section-direction: column;
+		--section-direction-reversed: column;
 		--base-txt-size: 1em;
 		--base-txt-lh: 1em;
+		--txt-xs: calc(var(--base-txt-size) * 0.7);
+    	--txt-sm: calc(var(--base-txt-size) * 0.8);
 	}
 }
 @media screen and (max-width: 680px){
 	:root{
 		--section-direction: column;
+		--section-direction-reversed: column;
+		--footer-buttons-direction: column;
 		--txt-xs: calc(var(--base-txt-size) * 0.8);
     	--txt-sm: calc(var(--base-txt-size) * 0.9);
 	}
