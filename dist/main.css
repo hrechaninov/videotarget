@@ -298,10 +298,16 @@ button:active{
 .no-overflow{
 	overflow: hidden;
 }
-@media screen and (max-width: 1400px){
+@media screen and (max-width: 2000px){
 	:root{
 		--base-txt-size: 1.4em;
 		--base-txt-lh: 1.4em;
+	}
+}
+@media screen and (max-width: 1400px){
+	:root{
+		--base-txt-size: 1.2em;
+		--base-txt-lh: 1.2em;
 	}
 }
 @media screen and (max-width: 1200px){
