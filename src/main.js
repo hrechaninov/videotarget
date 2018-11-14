@@ -4,21 +4,20 @@ require("firebase/firestore");
 
 window.onload = function(){
 	const db = firebase.firestore();
-	const popUp = {
-		attached: false
-	};
 	const formOwnConfig = {
 		name: "Продажи со своего канала",
-		element: document.querySelector("#form-own"),
-		popUp: popUp
+		element: document.querySelector("#form-own")
 	};
 	const formAdsConfig = {
 		name: "Продажи с рекламы",
-		element: document.querySelector("#form-ads"),
-		popUp: popUp
+		element: document.querySelector("#form-ads")
 	};
 	const formOwn = new Form(formOwnConfig);
 	const formAds = new Form(formAdsConfig);
+	const buttonOwn = document.getElementById("button-own");
+	const buttonAds = document.getElementById("button-from-ads");
+	const buttonsClosePopUp = document.querySelectorAll(".pop-up-close-button");
+	const buttonsOpenPopUp = document.querySelectorAll(".pop-up-open-button");
 
 	db.settings({
 		timestampsInSnapshots: true
@@ -26,12 +25,28 @@ window.onload = function(){
 	formOwn.dataBase = db;
 	formAds.dataBase = db;
 
-	document.getElementById("button-own").addEventListener("click", e => {
+	buttonOwn.addEventListener("click", e => {
 		scrollTo(document.getElementById("section-own"));
 	});
-	document.getElementById("button-from-ads").addEventListener("click", e => {
+	buttonAds.addEventListener("click", e => {
 		scrollTo(document.getElementById("section-ads"));
 	});
+	buttonsClosePopUp.forEach(button => {
+		button.addEventListener("click", closePopUp);
+	});
+	buttonsOpenPopUp.forEach(button => {
+		button.addEventListener("click", openPopUp);
+	});
+}
+function openPopUp(e){
+	const popUpId = e.currentTarget.dataset.target;
+	document.body.classList.add("no-overflow");
+	document.getElementById(popUpId).classList.remove("pop-up_hidden");
+}
+function closePopUp(e){
+	const popUp = e.currentTarget.parentNode;
+	document.body.classList.remove("no-overflow");
+	popUp.classList.add("pop-up_hidden");
 }
 function scrollTo(element){
 	element.scrollIntoView({ 

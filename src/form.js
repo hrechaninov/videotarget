@@ -1,7 +1,7 @@
 import {Input, EmailInput} from "./input.js";
 
 export class Form{
-	constructor({name, element, popUp}){
+	constructor({name, element}){
 		const nameInputConfig = {
 			name: "nameInput",
 			label: element.querySelector(".name-input-label"),
@@ -26,19 +26,18 @@ export class Form{
 		this._emailInput = new EmailInput(emailInputConfig);
 		this._phoneNumberInput = new Input(phoneNumberInputConfig);
 		this._submitButton = element.querySelector(".submit-button");
-		this._confirmationPopUp = document.querySelector("#confirmation-pop-up");
-		this._confirmationPopUpButton = document.querySelector(".pop-up-close-button");
 
-		this.setEventListeners(popUp);
+		this.setEventListeners();
 	}
 	set dataBase(db){
 		this._db = db;
 	}
-	setEventListeners(popUp){
+	setEventListeners(){
 		this._submitButton.addEventListener("click", e => {
 			e.preventDefault();
 
 			const date = new Date();
+			const popUpId = e.currentTarget.dataset.target;
 			const inputsOk = [
 				this._nameInput.isOk(),
 				this._emailInput.isOk(),
@@ -61,15 +60,8 @@ export class Form{
 				phoneNumber: this._phoneNumberInput.value,
 				date: date
 			});
+			document.getElementById(popUpId).classList.remove("pop-up_hidden");
 			console.log("added");
-			this._confirmationPopUp.classList.remove("pop-up_hidden");
-		});
-		
-		if(popUp.attached) return;
-
-		popUp.attached = true;
-		this._confirmationPopUpButton.addEventListener("click", e => {
-			this._confirmationPopUp.classList.add("pop-up_hidden");
 		});
 	}
 }
