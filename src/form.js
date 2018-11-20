@@ -41,11 +41,9 @@ export class Form{
 			].every(check => check === true);
 
 			if(!inputsOk){
-				console.log("impropper inputs");
 				return;
 			}
 			if(!this._db){
-				console.log("database is not attached, can`t send :(");
 				return;
 			}
 
@@ -57,7 +55,6 @@ export class Form{
 				date: date
 			});
 			document.getElementById(popUpId).classList.remove("pop-up_hidden");
-			console.log("added");
 		});
 	}
 }

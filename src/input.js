@@ -45,7 +45,6 @@ export class Input{
 	}
 	isOk(){
 		if(this.value.length < 1 && this._required){
-			console.log(`${this._name} is not ok`);
 			this.invalidInput();
 			return false;
 		}
@@ -103,8 +102,6 @@ export class EmailInput extends Input{
 	}
 	isOk(){
 		if(!this._check.test(this.value)){
-			console.log(`${this._name} is not ok`);
-			console.log(this._container);
 			this.invalidInput();
 			return false;
 		}
