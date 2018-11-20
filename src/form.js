@@ -4,20 +4,16 @@ export class Form{
 	constructor({name, element}){
 		const nameInputConfig = {
 			name: "nameInput",
-			label: element.querySelector(".name-input-label"),
-			input: element.querySelector(".name-input"),
+			required: true,
 			container: element.querySelector(".name-input-container")
 		};
 		const emailInputConfig = {
 			name: "emailInput",
-			label: element.querySelector(".email-input-label"),
-			input: element.querySelector(".email-input"),
+			required: true,
 			container: element.querySelector(".email-input-container")
 		};
 		const phoneNumberInputConfig = {
 			name: "phoneNumberInput",
-			label: element.querySelector(".phone-number-input-label"),
-			input: element.querySelector(".phone-number-input"),
 			container: element.querySelector(".phone-number-input-container")
 		};
 

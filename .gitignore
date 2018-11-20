@@ -3,3 +3,4 @@ ref/
 .vscode/
 .firebase/
 functions/node_modules/
+.eslintrc.json

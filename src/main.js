@@ -37,7 +37,7 @@ window.onload = function(){
 	buttonsOpenPopUp.forEach(button => {
 		button.addEventListener("click", openPopUp);
 	});
-}
+};
 function openPopUp(e){
 	const popUpId = e.currentTarget.dataset.target;
 	document.body.classList.add("no-overflow");
