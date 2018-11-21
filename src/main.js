@@ -50,7 +50,8 @@ function closePopUp(e){
 }
 function scrollTo(element){
 	element.scrollIntoView({ 
-		behavior: "smooth"
+		behavior: "smooth",
+		block: "start"
 	});
 }
 var firebaseConfig = {
