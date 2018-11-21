@@ -50,19 +50,19 @@ footer{
 h1{
     font-size: var(--txt-xl);
     line-height: var(--txt-lh-normal);
-	letter-spacing: 6px;
+	letter-spacing: 2px;
 	text-align: center;
 }
 h2, h3{
 	color: var(--color);
     font-size: var(--txt-lg);
     line-height: var(--txt-lh-normal);
-    letter-spacing: 4px;
-    font-weight: lighter;
+    letter-spacing: 2px;
 	text-align: center;
 }
 h3{
 	font-size: var(--txt-md);
+	font-weight: normal;
 }
 p{
 	color: var(--color);
@@ -366,6 +366,9 @@ button:active{
 	form{
 		margin-bottom: var(--txt-lg);
 	}
+	.section-heading{
+		margin-top: calc(var(--txt-lg) * 0.5);
+	}
 	.section-description{
 		margin-top: var(--txt-md);
 	}
@@ -385,6 +388,9 @@ button:active{
 	}
 	form{
 		margin-bottom: var(--txt-lg);
+	}
+	.section-heading{
+		margin-top: calc(var(--txt-lg) * 0.5);
 	}
 	.section-description{
 		margin-top: var(--txt-md);
